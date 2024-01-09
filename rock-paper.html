@@ -22,6 +22,12 @@
         playGame('Scissors');
     ">Scissors</button>
 
+    
+
+    <p class="res"></p>
+    <p class="stat"></p>
+    <p class="sco"></p>
+
     <button onclick="
         GameScore.wins=0;
         GameScore.lose=0;
@@ -83,8 +89,12 @@
             }
 
             localStorage.setItem("score", JSON.stringify(GameScore));
+
+            document.querySelector('.res').innerHTML = result;
+            document.querySelector('.stat').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+            document.querySelector('.sco').innerHTML = `Wins: ${GameScore.wins} Losses: ${GameScore.lose} Ties: ${GameScore.tie}`;
             
-            alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}\nWins: ${GameScore.wins}, Losses: ${GameScore.lose}, Ties: ${GameScore.tie}`);
+            // alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}\nWins: ${GameScore.wins}, Losses: ${GameScore.lose}, Ties: ${GameScore.tie}`);
         }
 
 

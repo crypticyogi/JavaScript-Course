@@ -4,23 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Game</title>
+    <style>
+        body{
+            background-color: rgb(25,25,25);
+            color: white;
+            font-family: Arial;
+        }
+        .move-icon{
+            height: 50px;
+        }
+        .move-btn{
+            background-color: transparent;
+            border: 3px solid white;
+            border-radius: 60px;
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            cursor: pointer;
+
+        }
+    </style>
 </head>
 <body>
     <h2>Rock Paper Scissors</h2>
     <button onclick="
         playGame('Rock');
         // console.log(computerMove);
-    ">Rock</button>
+    " class="move-btn"><img src="rock-emoji.png" alt="" class="move-icon"></button>
 
     <button onclick="
         // console.log(computerMove);
         playGame('Paper');
-    ">Paper</button>
+    " class="move-btn"><img src="paper-emoji.png" alt="" class="move-icon"></button>
 
     <button onclick="
         // console.log(computerMove);
         playGame('Scissors');
-    ">Scissors</button>
+    " class="move-btn"><img src="scissors-emoji.png" alt="" class="move-icon"></button>
 
     
 
@@ -33,6 +53,7 @@
         GameScore.lose=0;
         GameScore.tie=0;
         localStorage.removeItem('score');
+        document.querySelector('.sco').innerHTML = `Wins: ${GameScore.wins} Losses: ${GameScore.lose} Ties: ${GameScore.tie}`;
     ">Reset Score</button>
 
     <script>

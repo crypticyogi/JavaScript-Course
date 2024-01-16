@@ -23,6 +23,20 @@
             cursor: pointer;
 
         }
+        .res{
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+        .score{
+            margin-top: 60px;
+        }
+        .reset-score-button{
+            background-color: white;
+            border: none;
+            font-size: 15px;
+            padding: 10px 15px;
+        }
     </style>
 </head>
 <body>
@@ -30,23 +44,23 @@
     <button onclick="
         playGame('Rock');
         // console.log(computerMove);
-    " class="move-btn"><img src="rock-emoji.png" alt="" class="move-icon"></button>
+    " class="move-btn"><img src="images/rock-emoji.png" alt="" class="move-icon"></button>
 
     <button onclick="
         // console.log(computerMove);
         playGame('Paper');
-    " class="move-btn"><img src="paper-emoji.png" alt="" class="move-icon"></button>
+    " class="move-btn"><img src="images/paper-emoji.png" alt="" class="move-icon"></button>
 
     <button onclick="
         // console.log(computerMove);
         playGame('Scissors');
-    " class="move-btn"><img src="scissors-emoji.png" alt="" class="move-icon"></button>
+    " class="move-btn"><img src="images/scissors-emoji.png" alt="" class="move-icon"></button>
 
     
 
     <p class="res"></p>
     <p class="stat"></p>
-    <p class="sco"></p>
+    <p class="sco score"></p>
 
     <button onclick="
         GameScore.wins=0;
@@ -54,7 +68,7 @@
         GameScore.tie=0;
         localStorage.removeItem('score');
         document.querySelector('.sco').innerHTML = `Wins: ${GameScore.wins} Losses: ${GameScore.lose} Ties: ${GameScore.tie}`;
-    ">Reset Score</button>
+    " class="reset-score-button">Reset Score</button>
 
     <script>
         let GameScore = JSON.parse(localStorage.getItem("score"))
@@ -112,7 +126,10 @@
             localStorage.setItem("score", JSON.stringify(GameScore));
 
             document.querySelector('.res').innerHTML = result;
-            document.querySelector('.stat').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+            document.querySelector('.stat').innerHTML = `You
+                <img src="images/${playerMove}-emoji.png" alt="" class="move-icon">
+                <img src="images/${computerMove}-emoji.png" alt="" class="move-icon">
+            Computer`;
             document.querySelector('.sco').innerHTML = `Wins: ${GameScore.wins} Losses: ${GameScore.lose} Ties: ${GameScore.tie}`;
             
             // alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}\nWins: ${GameScore.wins}, Losses: ${GameScore.lose}, Ties: ${GameScore.tie}`);
